@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Paws 'n' Claws</title>
+    <link rel="shortcut icon" type="image/x-icon" href="pawsnclawsfavicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Shojumaru&display=swap" rel="stylesheet">
+    <style>
+        #pagetitlepart1 {
+            position:absolute;
+            font-family: 'Shojumaru', cursive;
+            font-size: 50px;
+            transform:rotate(-20deg);
+            top:5px;
+            left:10px;
+        }
+        #pagetitlepart2 {
+            position:absolute;
+            font-family: 'Shojumaru', cursive;
+            font-size: 50px;
+            transform:rotate(-25deg);
+            top:34px;
+            left:22px;
+        }
+
+        #gamesummarymessage {
+            position:absolute;
+            top:-5px;
+            left:850px;
+            color:red;
+            letter-spacing: 1px;
+        }
+
+        #board {
+            position:absolute;
+            left:170px;
+            top:175px;
+            background-color:rgb(67, 67, 67);
+        }
+
+        td {
+            width:100px;
+            height:100px;
+            background-color: rgb(237, 237, 237);
+            text-align: center;
+            font-size:75px;
+        }
+        
+        #MainMessageDiv {
+            position:absolute;
+            left: 520px;
+            top: 115px;
+            width: 570px;          
+        }
+
+        #MainMessageText {
+          text-align: center;
+          font-family:"Arial Black";
+          font-size: 25px;
+            
+        }
+
+        #SubMessageDiv {
+            position:absolute;
+            left: 520px;
+            top: 195px;
+            width: 570px;          
+        }
+
+        #SubMessageText {
+            text-align: center;  
+            font-family:sans-serif;
+            text-decoration: underline;         
+        }
+
+        #playernamesform {
+            position:absolute; 
+            left:620px; 
+            top:265px;
+        }
+
+        .nameinput {
+            width:200px; 
+            position:relative; 
+            left:20px;
+            text-align: center;
+        }
+
+        .nameinput::placeholder {
+            text-align: center;
+        }
+
+        #submitplayernames {
+            cursor:pointer;
+        }
+
+        .playernamesformerrorstar {
+            color:red;
+            font-size:18px;
+            font-family: sans-serif;
+            position:absolute;
+        }
+
+        #pawsnameerrorstar {
+            top:250px;
+            left:946px;
+        }
+
+        #clawsnameerrorstar {
+            top:292px;
+            left:946px;
+        }
+
+        #playernamesformerrormessagestar {
+            top:415px;
+            left:802px;
+        }
+
+        #playernamesformerrormessage {
+            color:red;
+            font-size: 13px;
+            font-family: sans-serif;
+            position:absolute;
+            top:419px;
+            left:816px;
+        }
+
+        #submitguess {
+            position:absolute;
+            left: -650px;
+            top: 275px;
+            cursor:pointer;
+            background-color:green;
+            color:white;
+        }
+
+        #alternativesubmitmessage {
+            position:absolute;
+            left:857px;
+            top:264px;
+            font-size: small;
+            opacity: 0.5;
+        }
+
+        #pawsorclawsminiicon {
+            position:absolute;
+            left:-100px;
+            top:202px;
+            width:30px;
+            height:30px;
+        }
+
+        #arrowtoboard {
+            position:absolute;
+            top:212px;
+            left:-200px;
+            transform:rotate(-15deg);
+        }
+
+        .navbutton {
+            width:196px;
+            height:36px;
+            position:absolute;
+            outline: 2px solid white;
+            cursor: pointer;
+        }
+
+        #backtowebsitebutton {
+            left: 30px;
+            top:570px;         
+        }
+
+        #viewcodebutton {
+            right:30px;
+            top:570px;
+        }
+
+        #backtowebsitebutton:hover {
+            border-color: skyblue;
+            background-color:rgb(242, 242, 242);
+        }
+
+        #viewcodebutton:hover {
+            border-color: skyblue;
+            background-color:rgb(242, 242, 242);
+        }
+
+        #arrowbacktosite {
+            position:absolute;
+            left:15px;
+            top:610px;
+        }
+
+        .pawspic {
+            background-image: url('pawssmall.png'); 
+            background-size:80px; 
+            background-repeat:no-repeat;
+            background-position:center;
+        }
+
+        .clawspic {
+            background-image: url('redslash200.png'); 
+            background-size:100px; 
+            background-repeat:no-repeat;
+        }
+
+        .pawspic15 {
+            background-image: url('pawssmall15.png'); 
+            background-size:80px; 
+            background-repeat:no-repeat;
+            background-position:center;
+        }
+
+        .clawspic15 {
+            background-image: url('redslashsmall15.png'); 
+            background-size:100px; 
+            background-repeat:no-repeat;
+        }
+
+    </style>
+
+    
+</head>
+<body>
+<h1 id="pagetitlepart1">PAWS</h1>
+<h1 id="pagetitlepart2">'N' CLAWS</h1>
+
+
+<p id="gamesummarymessage">-Get 3 in a row (either horizontally,vertically or diagonally) to win!</p>
+
+
+<table id="board">
+    <tr>
+        <td id ="00"></td><td id ="01"></td><td id ="02"></td>
+    </tr>
+
+    <tr>
+        <td id ="10"></td><td id ="11"></td><td id ="12"></td>
+    </tr>
+
+    <tr>
+        <td id ="20"></td><td id ="21"></td><td id ="22"></td>
+    </tr>
+
+</table>
+
+<div id ="MainMessageDiv">
+    <p id="MainMessageText">Welcome players.</p>
+</div>
+
+<div id="SubMessageDiv">
+    <p id="SubMessageText">Please select sides and enter your names below to commence the game:</p>
+</div>
+
+
+
+<form id="playernamesform">
+    <label for="pawsname">Paws player:</label>
+    <input type="text" class="nameinput" id="pawsname" placeholder="Please enter your name:" autocomplete="off" style="left:24px">
+    <br>
+    <div style="position:relative; top:20px;">
+        <label for="clawsname">Claws player:</label>
+        <input type="text" class="nameinput" id="clawsname" placeholder="Please enter your name:" autocomplete="off">
+    </div>
+
+    <input type="submit" value="Submit" id="submitplayernames" style="position:relative; top:40px; left:178px">
+</form>
+
+<p class="playernamesformerrorstar" id="pawsnameerrorstar"></p>
+<p class="playernamesformerrorstar" id="clawsnameerrorstar"></p>
+<p class="playernamesformerrorstar" id="playernamesformerrormessagestar"></p>
+<p id="playernamesformerrormessage"></p>
+
+<input type="submit" value="Submit" id="submitguess">
+<p id="alternativesubmitmessage"></p>
+
+<img  id="pawsorclawsminiicon">
+
+<img src="leftarrow120.png" id="arrowtoboard">
+
+<button type="button" class="navbutton" id="backtowebsitebutton" onclick="document.location='../MyProjectsPage/MyProjectsPage.html'">Back to my website</button>
+<img src="backwardsarrowred120.png" id="arrowbacktosite">
+
+<button type="button" class="navbutton" id="viewcodebutton" title="Opens in new tab" onclick="window.open('https://github.com/DGWebDevelopment/Paws-n-Claws-200820/blob/master/pawsnclaws%20js%20rev%20200820.js', '_blank')">View project code</button>
+
+
+
+
+
+<script src="pawsnclaws js rev 200820.js"></script>
+<script src="playernamesformstyling rev 200820.js"></script>
+</body>
+</html>
